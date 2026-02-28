@@ -3,296 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Digital Growth CI | AGENCE DIGITAL</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-/* RESET */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family: 'Poppins', sans-serif;
-    color:#E6EDF3;
-    overflow-x:hidden;
-}
-
-/* IMAGE DE FOND FLOUTÉE GLOBALE */
-body::before{
-    content:"";
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c') no-repeat center center/cover;
-    filter: blur(6px);
-    z-index:-2;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    width:100%;
-    height:100%;
-    background: rgba(0,0,0,0.75);
-    z-index:-1;
-}
-
-/* NAVBAR */
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
-    backdrop-filter: blur(10px);
-}
-
-nav h1{
-    font-weight:700;
-    color:#00ffcc;
-}
-
-nav ul{
-    display:flex;
-    gap:25px;
-    list-style:none;
-}
-
-nav ul li a{
-    text-decoration:none;
-    color:#E6EDF3;
-    font-weight:500;
-    transition:0.3s;
-}
-
-nav ul li a:hover{
-    color:#00ffcc;
-}
-
-/* SECTIONS */
-section{
-    padding:100px 10%;
-    text-align:center;
-}
-
-h2{
-    font-size:40px;
-    margin-bottom:20px;
-    background: linear-gradient(90deg,#00ffcc,#00aaff);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-p{
-    max-width:700px;
-    margin:auto;
-    line-height:1.7;
-    color:#B8C1CC;
-}
-
-/* HERO */
-.hero{
-    padding-top:150px;
-}
-
-.hero h2{
-    font-size:55px;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:15px 35px;
-    background:#00ffcc;
-    color:black;
-    font-weight:600;
-    border-radius:30px;
-    text-decoration:none;
-    transition:0.3s;
-}
-
-.btn:hover{
-    transform:scale(1.05);
-}
-
-/* SERVICES */
-.services-grid{
-    margin-top:50px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-    gap:30px;
-}
-
-.service{
-    background:rgba(255,255,255,0.08);
-    padding:30px;
-    border-radius:15px;
-    backdrop-filter: blur(8px);
-    transition:0.3s;
-}
-
-.service h3{
-    color:#ffffff;
-    margin-bottom:10px;
-}
-
-.service p{
-    color:#C9D1D9;
-}
-
-.service:hover{
-    transform:translateY(-10px);
-    background:rgba(0,255,204,0.15);
-}
-
-/* CONTACT */
-form{
-    max-width:600px;
-    margin:40px auto 0;
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-}
-
-input, textarea{
-    padding:15px;
-    border:none;
-    border-radius:10px;
-    font-family:'Poppins';
-}
-
-button{
-    padding:15px;
-    background:#00ffcc;
-    border:none;
-    font-weight:600;
-    border-radius:30px;
-    cursor:pointer;
-}
-
-/* FOOTER */
-footer{
-    padding:30px;
-    text-align:center;
-    background:rgba(0,0,0,0.6);
-}
-
-/* WHATSAPP FLOAT */
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:30px;
-    color:white;
-    text-decoration:none;
-    box-shadow:0 5px 15px rgba(0,0,0,0.3);
-}
-
-.whatsapp:hover{
-    transform:scale(1.1);
-}
-
-</style>
+<title>Digital Growth CI | Agence Digitale Premium</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/main.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<nav>
-<h1>Digital Growth CI</h1>
-<ul>
-<li><a href="#home">Accueil</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
+<header class="navbar">
+  <div class="logo">Digital Growth CI</div>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">À propos</a>
+    <a href="contact.html" class="btn-nav">Contact</a>
+  </nav>
+</header>
 
-<!-- HERO -->
-<section class="hero" id="home">
-<h2>Nous Créons des Expériences Digitales Puissantes</h2>
-<p>Sites web modernes, solutions digitales et stratégies de croissance pour entreprises ambitieuses.</p>
-<a href="#contact" class="btn">Commencer avec nous</a>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Nous créons des systèmes digitaux qui génèrent de la croissance.</h1>
+    <p>Web • Marketing • Automatisation IA</p>
+    <a href="contact.html" class="btn-primary">Discuter de votre projet</a>
+  </div>
+  <div class="hero-image">
+    <img src="assets/images/hero.jpg" alt="Digital Agency">
+  </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services">
-<h2>Nos Services</h2>
-
-<div class="services-grid">
-
-<div class="service">
-<h3>Software Development</h3>
-<p>Applications web et mobiles performantes et sur mesure.</p>
-</div>
-
-<div class="service">
-<h3>Network Security</h3>
-<p>Protection avancée contre cyberattaques et failles de sécurité.</p>
-</div>
-
-<div class="service">
-<h3>Cloud Hosting</h3>
-<p>Hébergement rapide, sécurisé et évolutif.</p>
-</div>
-
-<div class="service">
-<h3>Création de Sites Vitrine</h3>
-<p>Présence en ligne élégante et professionnelle.</p>
-</div>
-
-<div class="service">
-<h3>E-commerce</h3>
-<p>Boutiques en ligne optimisées pour vendre 24h/24.</p>
-</div>
-
-<div class="service">
-<h3>SEO & Référencement</h3>
-<p>Positionnement stratégique sur Google.</p>
-</div>
-
-<div class="service">
-<h3>Marketing Digital</h3>
-<p>Publicité Facebook, Instagram & Google Ads.</p>
-</div>
-
-<div class="service">
-<h3>Automatisation Business</h3>
-<p>Systèmes automatiques pour générer des clients.</p>
-</div>
-
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-<h2>Contactez-nous</h2>
-
-<form action="https://formsubmit.co/tonemail@email.com" method="POST">
-<input type="text" name="name" placeholder="Votre Nom" required>
-<input type="email" name="email" placeholder="Votre Email" required>
-<textarea name="message" rows="5" placeholder="Votre Message"></textarea>
-<button type="submit">Envoyer</button>
-</form>
-
+<section class="services-preview">
+  <h2>Nos Expertises</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Développement Web</h3>
+      <p>Sites e-commerce, professionnels et applications web.</p>
+    </div>
+    <div class="card">
+      <h3>Marketing Digital</h3>
+      <p>SEO, Facebook Ads, Google Ads et tunnels de vente.</p>
+    </div>
+    <div class="card">
+      <h3>Automatisation & IA</h3>
+      <p>Chatbots, CRM automatisé et agents intelligents.</p>
+    </div>
+  </div>
 </section>
 
 <footer>
-© 2026 Digital Growth CI - Tous droits réservés
+  <p>© 2026 Digital Growth CI - Tous droits réservés</p>
 </footer>
 
-<!-- WhatsApp -->
-<a href="https://wa.me/2250700000000" class="whatsapp" target="_blank">💬</a>
+<a href="https://wa.me/2250713823957?text=Bonjour%20Digital%20Growth%20CI,%20je%20souhaite%20discuter%20d'un%20projet."
+class="whatsapp-float" target="_blank">💬</a>
 
+<script src="js/main.js"></script>
 </body>
 </html>
