@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L'Agence | Digital Growth CI — Notre Histoire, Notre Équipe</title>
+  <meta name="description" content="Découvrez Digital Growth CI, agence digitale fondée à Abidjan. Notre histoire, nos valeurs, notre équipe et nos chiffres clés." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#040D1C;--bg2:#070F22;--bg3:#0A1530;--card:#0C1A35;--blue:#0057FF;--cyan:#00C8FF;--glow:#0057FF55;--white:#FFFFFF;--off:#EFF4FF;--muted:#7A8EAA;--border:#1A2D50;--radius:14px;--font-h:'Syne',sans-serif;--font-b:'Outfit',sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--off);font-family:var(--font-b);font-size:16px;line-height:1.65;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+    h1,h2,h3,h4{font-family:var(--font-h);line-height:1.15}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:10px;font-family:var(--font-b);font-size:.95rem;font-weight:600;cursor:pointer;transition:all .25s;border:none}
+    .btn-primary{background:var(--blue);color:#fff;box-shadow:0 0 28px var(--glow)}
+    .btn-primary:hover{background:#1468ff;transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:var(--white);border:1.5px solid var(--border)}
+    .btn-outline:hover{border-color:var(--blue);color:var(--cyan)}
+    .tag{display:inline-flex;align-items:center;gap:8px;background:#0057FF1A;border:1px solid #0057FF44;color:var(--cyan);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:20px}
+    .tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cyan);display:block}
+    /* HEADER */
+    header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 24px;transition:all .3s}
+    header.scrolled{background:#040D1Cee;backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:76px}
+    .logo{display:flex;align-items:center;gap:10px;font-family:var(--font-h);font-size:1.25rem;font-weight:800;color:var(--white)}
+    .logo-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff}
+    .logo span{color:var(--cyan)}
+    nav{display:flex;align-items:center;gap:4px}
+    .nav-item{position:relative}
+    .nav-link{display:flex;align-items:center;gap:5px;padding:8px 14px;border-radius:8px;font-size:.9rem;font-weight:500;color:var(--off);transition:all .2s;cursor:pointer}
+    .nav-link:hover{color:var(--cyan);background:#0057FF11}
+    .nav-link .arrow{width:14px;height:14px;transition:transform .2s;opacity:.6}
+    .nav-item:hover .arrow{transform:rotate(180deg)}
+    .dropdown{position:absolute;top:calc(100% + 8px);left:0;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:8px;min-width:240px;opacity:0;pointer-events:none;transform:translateY(-8px);transition:all .2s;box-shadow:0 20px 60px #00000055}
+    .nav-item:hover .dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
+    .dropdown a{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;font-size:.875rem;color:var(--off);transition:all .15s}
+    .dropdown a:hover{background:#0057FF15;color:var(--cyan)}
+    .header-right{display:flex;align-items:center;gap:16px}
+    .header-phone{font-size:.875rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+    .header-phone span{color:var(--white);font-weight:500}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px}
+    .mobile-menu{display:none;position:fixed;inset:0;z-index:999;background:var(--bg2);flex-direction:column;padding:100px 32px 40px;overflow-y:auto}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{padding:14px 0;font-size:1.2rem;font-weight:600;border-bottom:1px solid var(--border);color:var(--off)}
+    .mobile-menu a:hover{color:var(--cyan)}
+    .mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--white);font-size:28px;cursor:pointer}
+    @media(max-width:768px){nav{display:none}.hamburger{display:flex}.header-phone{display:none}}
+    /* PAGE */
+    .page-hero{padding:140px 0 80px;position:relative;overflow:hidden;background:radial-gradient(ellipse 60% 50% at 50% 0%,#0057FF15 0%,transparent 70%)}
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.05}
+    .breadcrumb{font-size:.85rem;color:var(--muted);margin-bottom:16px}
+    .breadcrumb a{color:var(--cyan)}
+    .page-title{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:800;color:var(--white);margin-bottom:16px}
+    .page-title span{color:var(--cyan)}
+    .page-sub{font-size:1.05rem;color:var(--muted);max-width:540px}
+    .section{padding:80px 0}
+    /* HISTOIRE */
+    .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+    @media(max-width:900px){.story-grid{grid-template-columns:1fr}}
+    .story-text h2{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;color:var(--white);margin-bottom:20px}
+    .story-text h2 span{color:var(--cyan)}
+    .story-text p{color:var(--muted);margin-bottom:16px;line-height:1.8}
+    .story-visual{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:48px;display:flex;align-items:center;justify-content:center;min-height:320px;position:relative;overflow:hidden}
+    .story-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,#0057FF15 0%,transparent 70%)}
+    .story-icon{font-size:5rem;position:relative;z-index:1}
+    .story-year{position:absolute;top:24px;right:24px;font-family:var(--font-h);font-size:1.1rem;font-weight:800;color:var(--cyan)}
+    /* STATS */
+    .stats-bg{background:var(--bg2);padding:80px 0}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+    @media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:500px){.stats-grid{grid-template-columns:1fr 1fr}}
+    .stat-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px 24px;text-align:center;transition:all .3s}
+    .stat-card:hover{border-color:#0057FF44;transform:translateY(-4px)}
+    .stat-icon{font-size:2rem;margin-bottom:12px}
+    .stat-number{font-family:var(--font-h);font-size:2.8rem;font-weight:800;color:var(--white);margin-bottom:4px}
+    .stat-number span{color:var(--cyan)}
+    .stat-label{font-size:.9rem;color:var(--muted)}
+    /* VALEURS */
+    .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    @media(max-width:900px){.values-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:580px){.values-grid{grid-template-columns:1fr}}
+    .value-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;transition:all .3s;position:relative;overflow:hidden}
+    .value-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));opacity:0;transition:opacity .3s}
+    .value-card:hover{border-color:#0057FF44;transform:translateY(-4px)}
+    .value-card:hover::before{opacity:1}
+    .value-icon{font-size:2.2rem;margin-bottom:16px}
+    .value-title{font-family:var(--font-h);font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:10px}
+    .value-desc{font-size:.9rem;color:var(--muted);line-height:1.7}
+    /* EQUIPE */
+    .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+    @media(max-width:900px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:500px){.team-grid{grid-template-columns:1fr}}
+    .team-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px 24px;text-align:center;transition:all .3s}
+    .team-card:hover{border-color:#0057FF44;transform:translateY(-4px)}
+    .team-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 16px}
+    .team-name{font-family:var(--font-h);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:4px}
+    .team-role{font-size:.85rem;color:var(--cyan);font-weight:600;margin-bottom:8px}
+    .team-bio{font-size:.82rem;color:var(--muted);line-height:1.6}
+    /* CTA */
+    .cta-section{position:relative;overflow:hidden;background:linear-gradient(135deg,#040D1C,#071128,#040D1C);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;border-radius:50%;background:#0057FF18;filter:blur(80px);pointer-events:none}
+    .cta-inner{position:relative;z-index:1;text-align:center;padding:100px 24px}
+    .cta-inner h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:var(--white);margin-bottom:20px}
+    .cta-inner h2 span{color:var(--cyan)}
+    .cta-inner p{font-size:1.05rem;color:var(--muted);margin-bottom:40px}
+    .cta-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+    /* FOOTER */
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:70px 0 0}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;margin-bottom:56px}
+    @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
+    .footer-brand p{font-size:.9rem;color:var(--muted);max-width:280px;margin:16px 0 24px}
+    .social-links{display:flex;gap:10px}
+    .social-link{width:38px;height:38px;border-radius:10px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s}
+    .social-link:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-3px)}
+    .footer-col h4{font-family:var(--font-h);font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .footer-links{display:flex;flex-direction:column;gap:10px}
+    .footer-links a{font-size:.875rem;color:var(--muted);transition:color .2s}
+    .footer-links a:hover{color:var(--cyan)}
+    .footer-contact-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:14px}
+    .fc-text{font-size:.875rem;color:var(--muted)}
+    .fc-text a{color:var(--muted)}.fc-text a:hover{color:var(--cyan)}
+    .footer-bottom{border-top:1px solid var(--border);padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .footer-bottom p{font-size:.85rem;color:var(--muted)}
+    .footer-bottom span{color:var(--cyan)}
+    .wa-btn{position:fixed;bottom:28px;right:28px;z-index:998;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 24px #25D36655;transition:transform .25s}
+    .wa-btn:hover{transform:scale(1.1)}
+    .reveal{opacity:0;transform:translateY(28px);transition:all .6s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+  </style>
+</head>
+<body>
+  <header id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><div class="logo-icon">D</div>Digital Growth <span>CI</span></a>
+      <nav>
+        <div class="nav-item">
+          <div class="nav-link">Services <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+          <div class="dropdown">
+            <a href="creation-site-web.html"><span>🖥️</span> Création de Site Web</a>
+            <a href="developpement-logiciel.html"><span>⚙️</span> Développement Logiciel</a>
+            <a href="automatisation-ia.html"><span>🤖</span> Automatisation IA</a>
+            <a href="seo.html"><span>📈</span> SEO / Référencement</a>
+            <a href="marketing-digital.html"><span>🚀</span> Marketing Digital</a>
+          </div>
+        </div>
+        <a href="realisations.html" class="nav-link">Réalisations</a>
+        <a href="agence.html" class="nav-link" style="color:var(--cyan)">L'Agence</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-right">
+        <div class="header-phone">📞 <span><a href="tel:+2250713823957">+225 07 13 82 39 57</a></span></div>
+        <a href="contact.html" class="btn btn-primary" style="padding:10px 20px;font-size:.85rem;">Devis gratuit</a>
+        <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="toggleMenu()">✕</button>
+    <a href="index.html">🏠 Accueil</a>
+    <a href="creation-site-web.html">🖥️ Création de Site Web</a>
+    <a href="developpement-logiciel.html">⚙️ Développement Logiciel</a>
+    <a href="automatisation-ia.html">🤖 Automatisation IA</a>
+    <a href="seo.html">📈 SEO / Référencement</a>
+    <a href="marketing-digital.html">🚀 Marketing Digital</a>
+    <a href="realisations.html">🏆 Réalisations</a>
+    <a href="agence.html">🏢 L'Agence</a>
+    <a href="contact.html">📞 Contact</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Accueil</a> › L'Agence</div>
+      <div class="tag">Notre histoire</div>
+      <h1 class="page-title">Une agence née pour <span>accélérer</span><br>la croissance digitale en Afrique</h1>
+      <p class="page-sub">Digital Growth CI, c'est une équipe passionnée par le digital, engagée à transformer les entreprises ivoiriennes grâce à la technologie.</p>
+    </div>
+  </section>
+
+  <!-- HISTOIRE -->
+  <section class="section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-text reveal">
+          <div class="tag">Notre mission</div>
+          <h2>Construire le <span>futur digital</span> des entreprises africaines</h2>
+          <p>Digital Growth CI est née d'un constat simple : les entreprises ivoiriennes méritent d'avoir accès aux meilleures technologies digitales pour compétir localement et sur le marché international.</p>
+          <p>Fondée à Abidjan, notre agence combine l'expertise technique, la créativité et une profonde compréhension du marché local pour livrer des solutions qui génèrent de vraie valeur business.</p>
+          <p>Nous croyons que la transformation digitale n'est pas un luxe réservé aux grandes entreprises — c'est une nécessité accessible à toutes les structures, quelle que soit leur taille.</p>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:24px;">🤝 Travailler avec nous</a>
+        </div>
+        <div class="story-visual reveal">
+          <div class="story-year">Depuis 2019</div>
+          <div class="story-icon">🌍</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bg">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div class="tag">En chiffres</div>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;color:var(--white);">Nos résultats parlent <span style="color:var(--cyan);">d'eux-mêmes</span></h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <div class="stat-icon">🚀</div>
+          <div class="stat-number" data-target="50">0<span>+</span></div>
+          <div class="stat-label">Projets livrés</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-icon">🤝</div>
+          <div class="stat-number" data-target="40">0<span>+</span></div>
+          <div class="stat-label">Clients satisfaits</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-number" data-target="5">0<span>+</span></div>
+          <div class="stat-label">Ans d'expérience</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-icon">👨‍💻</div>
+          <div class="stat-number" data-target="8">0<span>+</span></div>
+          <div class="stat-label">Experts dédiés</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALEURS -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div class="tag">Ce qui nous guide</div>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;color:var(--white);">Nos <span style="color:var(--cyan);">valeurs</span></h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal"><div class="value-icon">🎯</div><div class="value-title">Excellence</div><div class="value-desc">On ne livre que des projets dont on est fiers. Chaque ligne de code, chaque pixel est pensé pour l'impact.</div></div>
+        <div class="value-card reveal"><div class="value-icon">🤝</div><div class="value-title">Transparence</div><div class="value-desc">Communication claire, délais tenus, prix honnêtes. Vous savez toujours où en est votre projet.</div></div>
+        <div class="value-card reveal"><div class="value-icon">🚀</div><div class="value-title">Innovation</div><div class="value-desc">Nous adoptons les nouvelles technologies en premiers — IA, automatisation — pour vous donner une longueur d'avance.</div></div>
+        <div class="value-card reveal"><div class="value-icon">📊</div><div class="value-title">Orientation résultats</div><div class="value-desc">On mesure tout. Trafic, conversions, ROI. Pas de belles promesses sans données concrètes.</div></div>
+        <div class="value-card reveal"><div class="value-icon">🌍</div><div class="value-title">Impact local</div><div class="value-desc">On est fiers d'être ivoiriens. Notre mission est de hisser les entreprises d'Abidjan au niveau international.</div></div>
+        <div class="value-card reveal"><div class="value-icon">🔄</div><div class="value-title">Partenariat long terme</div><div class="value-desc">On ne cherche pas des clients — on cherche des partenaires avec qui construire quelque chose de durable.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÉQUIPE -->
+  <section class="section" style="background:var(--bg2)">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div class="tag">Les humains derrière les écrans</div>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;color:var(--white);">Notre <span style="color:var(--cyan);">équipe</span></h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal"><div class="team-avatar">👨‍💼</div><div class="team-name">Konan Aya</div><div class="team-role">CEO & Stratège Digital</div><div class="team-bio">Visionnaire du digital en Afrique, expert en stratégie de croissance et business development.</div></div>
+        <div class="team-card reveal"><div class="team-avatar">👩‍🎨</div><div class="team-name">Adjoua Marie</div><div class="team-role">Directrice Artistique</div><div class="team-bio">Designer UX/UI passionnée, elle transforme les idées en interfaces belles et intuitives.</div></div>
+        <div class="team-card reveal"><div class="team-avatar">👨‍💻</div><div class="team-name">Koffi Jean</div><div class="team-role">Lead Développeur Full-Stack</div><div class="team-bio">Expert React, Node.js et IA, il code les solutions les plus complexes avec élégance.</div></div>
+        <div class="team-card reveal"><div class="team-avatar">👩‍📊</div><div class="team-name">Bamba Fatou</div><div class="team-role">Experte SEO & Marketing</div><div class="team-bio">Stratège en acquisition digitale, elle positionne nos clients en tête de Google et génère des leads qualifiés.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="cta-inner">
+      <div class="tag" style="margin:0 auto 20px;">On vous attend</div>
+      <h2>Rejoignez les entreprises qui <span>grandissent</span> avec nous</h2>
+      <p>Votre projet mérite une équipe dédiée et passionnée. Parlons-en autour d'un café (virtuel) !</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-primary">☕ Démarrer la conversation</a>
+        <a href="realisations.html" class="btn btn-outline">Voir nos projets →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><a href="index.html" class="logo"><div class="logo-icon">D</div>Digital Growth <span>CI</span></a><p>Agence digitale à Abidjan spécialisée en création de sites web, développement logiciel, automatisation IA, SEO et marketing digital.</p><div class="social-links"><a href="#" class="social-link">📘</a><a href="#" class="social-link">📸</a><a href="#" class="social-link">💼</a><a href="#" class="social-link">▶️</a></div></div>
+        <div class="footer-col"><h4>Services</h4><div class="footer-links"><a href="creation-site-web.html">Création de Site Web</a><a href="developpement-logiciel.html">Développement Logiciel</a><a href="automatisation-ia.html">Automatisation IA</a><a href="seo.html">SEO / Référencement</a><a href="marketing-digital.html">Marketing Digital</a></div></div>
+        <div class="footer-col"><h4>Agence</h4><div class="footer-links"><a href="agence.html">Notre histoire</a><a href="realisations.html">Réalisations</a><a href="contact.html">Contact</a></div></div>
+        <div class="footer-col"><h4>Contact</h4><div class="footer-contact-item"><span>📍</span><div class="fc-text">Cocody, Abidjan, CI</div></div><div class="footer-contact-item"><span>📞</span><div class="fc-text"><a href="tel:+2250713823957">+225 07 13 82 39 57</a></div></div><div class="footer-contact-item"><span>✉️</span><div class="fc-text"><a href="mailto:DigitalGrowthCi@outlook.fr">DigitalGrowthCi@outlook.fr</a></div></div></div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 <span>Digital Growth CI</span>. Tous droits réservés.</p><p style="font-size:.8rem;">Fait avec ❤️ à Abidjan 🇨🇮</p></div>
+    </div>
+  </footer>
+  <a href="https://wa.me/2250713923957" class="wa-btn" target="_blank">💬</a>
+
+  <script>
+    window.addEventListener('scroll', () => document.getElementById('header').classList.toggle('scrolled', scrollY > 40));
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => { entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); io.unobserve(e.target); } }); }, {threshold:0.1});
+    reveals.forEach(r => io.observe(r));
+    // Compteurs
+    document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+      const obs = new IntersectionObserver(([entry]) => {
+        if(entry.isIntersecting){
+          const target = +el.dataset.target;
+          const span = el.querySelector('span');
+          el.textContent = '0'; if(span) el.appendChild(span);
+          let n = 0; const step = target/60;
+          const t = setInterval(()=>{ n+=step; if(n>=target){n=target;clearInterval(t);} el.childNodes[0].textContent=Math.floor(n); },16);
+          obs.unobserve(el);
+        }
+      },{threshold:0.5});
+      obs.observe(el);
+    });
+  </script>
+</body>
+</html>

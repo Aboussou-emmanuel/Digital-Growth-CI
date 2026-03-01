@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog | Digital Growth CI — Conseils Digitaux, SEO, IA & Marketing Abidjan</title>
+  <meta name="description" content="Blog de Digital Growth CI. Articles, conseils et actualités sur le digital en Côte d'Ivoire : SEO, création de sites web, IA, marketing digital."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#040D1C;--bg2:#070F22;--bg3:#0A1530;--card:#0C1A35;--blue:#0057FF;--cyan:#00C8FF;--glow:#0057FF55;--white:#FFF;--off:#EFF4FF;--muted:#7A8EAA;--border:#1A2D50;--radius:14px;--font-h:'Syne',sans-serif;--font-b:'Outfit',sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--off);font-family:var(--font-b);font-size:16px;line-height:1.65;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+    h1,h2,h3,h4{font-family:var(--font-h);line-height:1.15}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:10px;font-family:var(--font-b);font-size:.95rem;font-weight:600;cursor:pointer;transition:all .25s;border:none}
+    .btn-primary{background:var(--blue);color:#fff;box-shadow:0 0 28px var(--glow)}.btn-primary:hover{background:#1468ff;transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:var(--white);border:1.5px solid var(--border)}.btn-outline:hover{border-color:var(--blue);color:var(--cyan)}
+    .tag{display:inline-flex;align-items:center;gap:8px;background:#0057FF1A;border:1px solid #0057FF44;color:var(--cyan);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:20px}
+    .tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cyan);display:block}
+
+    /* ── HEADER ─────────────────────────────────── */
+    header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 24px;transition:all .3s}
+    header.scrolled{background:#040D1Cee;backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:76px}
+    .logo{display:flex;align-items:center;gap:10px;font-family:var(--font-h);font-size:1.25rem;font-weight:800;color:var(--white)}
+    .logo-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff}
+    .logo span{color:var(--cyan)}
+    nav{display:flex;align-items:center;gap:4px}
+    .nav-item{position:relative}
+    .nav-link{display:flex;align-items:center;gap:5px;padding:8px 14px;border-radius:8px;font-size:.9rem;font-weight:500;color:var(--off);transition:all .2s;cursor:pointer}
+    .nav-link:hover{color:var(--cyan);background:#0057FF11}
+    .arrow{width:14px;height:14px;transition:transform .2s;opacity:.6}
+    .nav-item:hover .arrow{transform:rotate(180deg)}
+    .dropdown{position:absolute;top:calc(100% + 8px);left:0;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:8px;min-width:240px;opacity:0;pointer-events:none;transform:translateY(-8px);transition:all .2s;box-shadow:0 20px 60px #00000055}
+    .nav-item:hover .dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
+    .dropdown a{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;font-size:.875rem;color:var(--off);transition:all .15s}
+    .dropdown a:hover{background:#0057FF15;color:var(--cyan)}
+    .header-right{display:flex;align-items:center;gap:16px}
+    .header-phone{font-size:.875rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+    .header-phone span{color:var(--white);font-weight:500}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px}
+    .mobile-menu{display:none;position:fixed;inset:0;z-index:999;background:var(--bg2);flex-direction:column;padding:100px 32px 40px;overflow-y:auto}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{padding:14px 0;font-size:1.2rem;font-weight:600;border-bottom:1px solid var(--border);color:var(--off)}
+    .mobile-menu a:hover{color:var(--cyan)}
+    .mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--white);font-size:28px;cursor:pointer}
+    @media(max-width:768px){nav{display:none}.hamburger{display:flex}.header-phone{display:none}}
+
+    /* ── PAGE HERO ───────────────────────────────── */
+    .page-hero{padding:140px 0 80px;position:relative;overflow:hidden;background:radial-gradient(ellipse 60% 50% at 50% 0%,#0057FF15 0%,transparent 70%)}
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.05}
+    .breadcrumb{font-size:.85rem;color:var(--muted);margin-bottom:16px}
+    .breadcrumb a{color:var(--cyan)}
+    .page-title{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:800;color:var(--white);margin-bottom:16px}
+    .page-title span{color:var(--cyan)}
+    .page-sub{font-size:1.05rem;color:var(--muted);max-width:540px}
+
+    /* ── FILTRES CATÉGORIES ──────────────────────── */
+    .filters-bar{padding:48px 0 32px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+    .filter-btn{padding:9px 22px;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:var(--font-b);font-size:.875rem;font-weight:600;cursor:pointer;transition:all .2s}
+    .filter-btn:hover,.filter-btn.active{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 0 20px var(--glow)}
+
+    /* ── SEARCH ──────────────────────────────────── */
+    .search-wrap{margin-left:auto}
+    .search-input{background:var(--card);border:1px solid var(--border);border-radius:100px;padding:10px 20px 10px 44px;font-family:var(--font-b);font-size:.875rem;color:var(--off);outline:none;width:240px;transition:all .2s;position:relative}
+    .search-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #0057FF20}
+    .search-wrap{position:relative}
+    .search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:14px;pointer-events:none}
+
+    /* ── LAYOUT BLOG ─────────────────────────────── */
+    .blog-layout{display:grid;grid-template-columns:1fr 320px;gap:48px;padding-bottom:100px}
+    @media(max-width:1024px){.blog-layout{grid-template-columns:1fr}}
+
+    /* ── ARTICLE FEATURED ────────────────────────── */
+    .featured-card{background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;margin-bottom:32px;transition:all .3s;display:grid;grid-template-columns:1fr 1fr}
+    @media(max-width:768px){.featured-card{grid-template-columns:1fr}}
+    .featured-card:hover{border-color:#0057FF44;transform:translateY(-4px);box-shadow:0 20px 60px #0057FF15}
+    .featured-img{min-height:280px;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative}
+    .f-img1{background:linear-gradient(135deg,#0057FF22,#00C8FF33)}
+    .featured-badge{position:absolute;top:16px;left:16px;background:var(--blue);color:#fff;font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:100px}
+    .featured-body{padding:36px 32px;display:flex;flex-direction:column;justify-content:center}
+    .art-cat{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--cyan);margin-bottom:12px}
+    .art-title{font-family:var(--font-h);font-size:1.4rem;font-weight:800;color:var(--white);margin-bottom:12px;line-height:1.25}
+    .art-excerpt{font-size:.9rem;color:var(--muted);line-height:1.7;margin-bottom:20px}
+    .art-meta{display:flex;align-items:center;gap:16px;font-size:.8rem;color:var(--muted);margin-bottom:20px}
+    .art-meta-item{display:flex;align-items:center;gap:5px}
+    .art-link{display:inline-flex;align-items:center;gap:6px;font-size:.875rem;font-weight:700;color:var(--cyan);transition:gap .2s}
+    .art-link:hover{gap:10px}
+
+    /* ── GRILLE ARTICLES ─────────────────────────── */
+    .articles-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    @media(max-width:768px){.articles-grid{grid-template-columns:1fr}}
+
+    .article-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all .3s}
+    .article-card:hover{border-color:#0057FF44;transform:translateY(-5px);box-shadow:0 20px 50px #0057FF12}
+    .article-card.hidden{display:none}
+
+    .ac-img{height:180px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative}
+    .ac1{background:linear-gradient(135deg,#0057FF20,#00C8FF25)}
+    .ac2{background:linear-gradient(135deg,#7C3AED20,#0057FF20)}
+    .ac3{background:linear-gradient(135deg,#05966920,#10B98120)}
+    .ac4{background:linear-gradient(135deg,#DC262620,#F9731620)}
+    .ac5{background:linear-gradient(135deg,#B4530920,#EAB30820)}
+    .ac6{background:linear-gradient(135deg,#06B6D420,#0057FF20)}
+    .ac7{background:linear-gradient(135deg,#EC489920,#0057FF20)}
+    .ac8{background:linear-gradient(135deg,#0057FF20,#7C3AED20)}
+    .ac-cat-badge{position:absolute;top:12px;left:12px;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:100px;color:#fff}
+    .cat-seo{background:#059669}
+    .cat-web{background:#0057FF}
+    .cat-ia{background:#7C3AED}
+    .cat-marketing{background:#EA580C}
+    .cat-logiciel{background:#0891B2}
+
+    .ac-body{padding:24px}
+    .ac-title{font-family:var(--font-h);font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.3}
+    .ac-excerpt{font-size:.85rem;color:var(--muted);line-height:1.65;margin-bottom:16px}
+    .ac-meta{display:flex;align-items:center;justify-content:space-between;font-size:.78rem;color:var(--muted)}
+    .ac-meta-left{display:flex;align-items:center;gap:12px}
+    .read-more{color:var(--cyan);font-weight:600;font-size:.8rem;transition:all .2s}
+    .read-more:hover{gap:8px;text-decoration:underline}
+
+    /* ── PAGINATION ──────────────────────────────── */
+    .pagination{display:flex;justify-content:center;gap:8px;padding:40px 0 0}
+    .page-btn{width:40px;height:40px;border-radius:10px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.875rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s}
+    .page-btn:hover,.page-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}
+
+    /* ── SIDEBAR ─────────────────────────────────── */
+    .sidebar{display:flex;flex-direction:column;gap:24px}
+    @media(max-width:1024px){.sidebar{display:none}}
+
+    .sidebar-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px}
+    .sidebar-title{font-family:var(--font-h);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+
+    /* Newsletter */
+    .newsletter-input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:11px 16px;font-family:var(--font-b);font-size:.875rem;color:var(--off);outline:none;margin-bottom:12px;transition:border-color .2s}
+    .newsletter-input:focus{border-color:var(--blue)}
+    .newsletter-btn{width:100%;padding:11px;background:var(--blue);color:#fff;border:none;border-radius:10px;font-family:var(--font-b);font-size:.875rem;font-weight:600;cursor:pointer;transition:all .2s;box-shadow:0 0 20px var(--glow)}
+    .newsletter-btn:hover{background:#1468ff;transform:translateY(-1px)}
+    .newsletter-note{font-size:.75rem;color:var(--muted);margin-top:8px;text-align:center}
+
+    /* Catégories sidebar */
+    .cat-list{display:flex;flex-direction:column;gap:6px}
+    .cat-item{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-radius:10px;border:1px solid transparent;cursor:pointer;transition:all .2s;font-size:.875rem;color:var(--muted)}
+    .cat-item:hover{background:var(--bg3);border-color:var(--border);color:var(--cyan)}
+    .cat-count{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:1px 8px;font-size:.75rem;font-weight:700;color:var(--muted)}
+
+    /* Articles populaires sidebar */
+    .popular-list{display:flex;flex-direction:column;gap:16px}
+    .popular-item{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+    .popular-item:hover .popular-title{color:var(--cyan)}
+    .popular-num{font-family:var(--font-h);font-size:1.5rem;font-weight:800;color:#0057FF20;flex-shrink:0;line-height:1}
+    .popular-title{font-size:.85rem;font-weight:600;color:var(--off);line-height:1.4;transition:color .2s;margin-bottom:4px}
+    .popular-date{font-size:.75rem;color:var(--muted)}
+
+    /* Tags */
+    .tags-cloud{display:flex;flex-wrap:wrap;gap:8px}
+    .tag-pill{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:5px 12px;font-size:.78rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s}
+    .tag-pill:hover{border-color:var(--blue);color:var(--cyan);background:#0057FF10}
+
+    /* ── CTA NEWSLETTER ──────────────────────────── */
+    .cta-newsletter{background:linear-gradient(135deg,var(--card),var(--bg3));border:1px solid var(--border);border-radius:24px;padding:56px 48px;text-align:center;margin:0 0 80px;position:relative;overflow:hidden}
+    .cta-newsletter::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,#0057FF15,transparent 70%)}
+    .cta-newsletter h2{font-size:1.8rem;font-weight:800;color:var(--white);margin-bottom:12px;position:relative}
+    .cta-newsletter h2 span{color:var(--cyan)}
+    .cta-newsletter p{color:var(--muted);font-size:.95rem;margin-bottom:28px;position:relative}
+    .nl-form{display:flex;gap:12px;max-width:480px;margin:0 auto;position:relative}
+    @media(max-width:580px){.nl-form{flex-direction:column}}
+    .nl-input{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:13px 18px;font-family:var(--font-b);font-size:.9rem;color:var(--off);outline:none;transition:border-color .2s}
+    .nl-input:focus{border-color:var(--blue)}
+    .nl-btn{background:var(--blue);color:#fff;border:none;border-radius:10px;padding:13px 24px;font-family:var(--font-b);font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;box-shadow:0 0 20px var(--glow)}
+    .nl-btn:hover{background:#1468ff;transform:translateY(-1px)}
+
+    /* ── CTA FINAL ───────────────────────────────── */
+    .cta-section{position:relative;overflow:hidden;background:linear-gradient(135deg,#040D1C,#071128,#040D1C);border-top:1px solid var(--border)}
+    .cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;border-radius:50%;background:#0057FF18;filter:blur(80px)}
+    .cta-inner{position:relative;z-index:1;text-align:center;padding:100px 24px}
+    .cta-inner h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--white);margin-bottom:20px}
+    .cta-inner h2 span{color:var(--cyan)}
+    .cta-inner p{font-size:1.05rem;color:var(--muted);margin-bottom:40px}
+    .cta-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+
+    /* ── FOOTER ──────────────────────────────────── */
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:70px 0 0}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;margin-bottom:56px}
+    @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
+    .footer-brand p{font-size:.9rem;color:var(--muted);max-width:280px;margin:16px 0 24px}
+    .social-links{display:flex;gap:10px}
+    .social-link{width:38px;height:38px;border-radius:10px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s}
+    .social-link:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-3px)}
+    .footer-col h4{font-family:var(--font-h);font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .footer-links{display:flex;flex-direction:column;gap:10px}
+    .footer-links a{font-size:.875rem;color:var(--muted);transition:color .2s}
+    .footer-links a:hover{color:var(--cyan)}
+    .footer-contact-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:14px}
+    .fc-text{font-size:.875rem;color:var(--muted)}
+    .fc-text a{color:var(--muted)}.fc-text a:hover{color:var(--cyan)}
+    .footer-bottom{border-top:1px solid var(--border);padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .footer-bottom p{font-size:.85rem;color:var(--muted)}
+    .footer-bottom span{color:var(--cyan)}
+    .wa-btn{position:fixed;bottom:28px;right:28px;z-index:998;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 24px #25D36655;transition:transform .25s}
+    .wa-btn:hover{transform:scale(1.1)}
+    .reveal{opacity:0;transform:translateY(28px);transition:all .6s}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><div class="logo-icon">D</div>Digital Growth <span>CI</span></a>
+      <nav>
+        <div class="nav-item">
+          <div class="nav-link">Services <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+          <div class="dropdown">
+            <a href="creation-site-web.html"><span>🖥️</span> Création de Site Web</a>
+            <a href="developpement-logiciel.html"><span>⚙️</span> Développement Logiciel</a>
+            <a href="automatisation-ia.html"><span>🤖</span> Automatisation IA</a>
+            <a href="seo.html"><span>📈</span> SEO / Référencement</a>
+            <a href="marketing-digital.html"><span>🚀</span> Marketing Digital</a>
+          </div>
+        </div>
+        <a href="realisations.html" class="nav-link">Réalisations</a>
+        <a href="agence.html" class="nav-link">L'Agence</a>
+        <a href="blog.html" class="nav-link" style="color:var(--cyan)">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-right">
+        <div class="header-phone">📞 <span><a href="tel:+2250713823957">+225 07 13 82 39 57</a></span></div>
+        <a href="contact.html" class="btn btn-primary" style="padding:10px 20px;font-size:.85rem;">Devis gratuit</a>
+        <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="toggleMenu()">✕</button>
+    <a href="index.html">🏠 Accueil</a>
+    <a href="creation-site-web.html">🖥️ Création de Site Web</a>
+    <a href="developpement-logiciel.html">⚙️ Développement Logiciel</a>
+    <a href="automatisation-ia.html">🤖 Automatisation IA</a>
+    <a href="seo.html">📈 SEO / Référencement</a>
+    <a href="marketing-digital.html">🚀 Marketing Digital</a>
+    <a href="realisations.html">🏆 Réalisations</a>
+    <a href="agence.html">🏢 L'Agence</a>
+    <a href="blog.html">📰 Blog</a>
+    <a href="contact.html">📞 Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container" style="position:relative;z-index:1">
+      <div class="breadcrumb"><a href="index.html">Accueil</a> › Blog</div>
+      <div class="tag">📰 Ressources & conseils</div>
+      <h1 class="page-title">Le Blog <span>Digital Growth CI</span></h1>
+      <p class="page-sub">Conseils, tutoriels et actualités sur le digital en Côte d'Ivoire. SEO, IA, création de sites web et marketing digital — tout ce qu'il faut savoir pour réussir en ligne.</p>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- FILTRES -->
+    <div class="filters-bar">
+      <button class="filter-btn active" data-filter="all">Tous les articles</button>
+      <button class="filter-btn" data-filter="seo">SEO</button>
+      <button class="filter-btn" data-filter="web">Création Web</button>
+      <button class="filter-btn" data-filter="ia">IA & Automatisation</button>
+      <button class="filter-btn" data-filter="marketing">Marketing Digital</button>
+      <button class="filter-btn" data-filter="logiciel">Logiciels</button>
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="searchInput" placeholder="Rechercher un article..." />
+      </div>
+    </div>
+
+    <!-- LAYOUT BLOG -->
+    <div class="blog-layout">
+
+      <!-- CONTENU PRINCIPAL -->
+      <main>
+
+        <!-- ARTICLE À LA UNE -->
+        <a href="article.html" class="featured-card reveal">
+          <div class="featured-img f-img1">
+            🤖
+            <div class="featured-badge">⭐ À la une</div>
+          </div>
+          <div class="featured-body">
+            <div class="art-cat">🤖 IA & Automatisation</div>
+            <h2 class="art-title">Comment l'IA peut automatiser 80% des tâches répétitives de votre entreprise</h2>
+            <p class="art-excerpt">Découvrez les 5 processus que nos clients automatisent en premier avec l'IA — et les résultats concrets obtenus en moins de 3 mois à Abidjan.</p>
+            <div class="art-meta">
+              <div class="art-meta-item">👤 Équipe Digital Growth CI</div>
+              <div class="art-meta-item">📅 15 Janvier 2025</div>
+              <div class="art-meta-item">⏱️ 8 min de lecture</div>
+            </div>
+            <div class="art-link">Lire l'article →</div>
+          </div>
+        </a>
+
+        <!-- GRILLE ARTICLES -->
+        <div class="articles-grid" id="articlesGrid">
+
+          <a href="article.html" class="article-card reveal" data-cat="seo" data-title="référencement google abidjan seo">
+            <div class="ac-img ac1">
+              📈
+              <div class="ac-cat-badge cat-seo">SEO</div>
+            </div>
+            <div class="ac-body">
+              <h3 class="ac-title">5 erreurs SEO qui empêchent votre site d'apparaître sur Google en Côte d'Ivoire</h3>
+              <p class="ac-excerpt">La plupart des sites ivoiriens commettent ces erreurs techniques sans le savoir. Vérifiez si votre site est concerné et comment les corriger.</p>
+              <div class="ac-meta">
+                <div class="ac-meta-left">
+                  <span>📅 10 Jan 2025</span>
+                  <span>⏱️ 6 min</span>
+                </div>
+                <span class="read-more">Lire →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="article.html" class="article-card reveal" data-cat="marketing" data-title="facebook ads instagram publicité abidjan">
+            <div class="ac-img ac2">
+              🎯
+              <div class="ac-cat-badge cat-marketing">Marketing</div>
+            </div>
+            <div class="ac-body">
+              <h3 class="ac-title">Facebook Ads en Côte d'Ivoire : le guide complet pour éviter de perdre votre budget</h3>
+              <p class="ac-excerpt">Ciblage, budgets, formats, optimisation — tout ce qu'il faut savoir pour lancer des campagnes rentables sur le marché ivoirien.</p>
+              <div class="ac-meta">
+                <div class="ac-meta-left">
+                  <span>📅 5 Jan 2025</span>
+                  <span>⏱️ 10 min</span>
+                </div>
+                <span class="read-more">Lire →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="article.html" class="article-card reveal" data-cat="web" data-title="création site web wordpress abidjan">
+            <div class="ac-img ac3">
+              🖥️
+              <div class="ac-cat-badge cat-web">Création Web</div>
+            </div>
+            <div class="ac-body">
+              <h3 class="ac-title">WordPress vs site sur mesure : que choisir pour votre entreprise à Abidjan ?</h3>
+              <p class="ac-excerpt">CMS ou développement custom ? On compare les deux options selon votre budget, vos objectifs et votre secteur d'activité en Côte d'Ivoire.</p>
+              <div class="ac-meta">
+                <div class="ac-meta-left">
+                  <span>📅 28 Déc 2024</span>
+                  <span>⏱️ 7 min</span>
+                </div>
+                <span class="read-more">Lire →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="article.html" class="article-card reveal" data-cat="ia" data-title="chatbot whatsapp automatisation ia">
+            <div class="ac-img ac4">
+              💬
+              <div class="ac-cat-badge cat-ia">IA</div>
+            </div>
+            <div class="ac-body">
+              <h3 class="ac-title">Chatbot WhatsApp pour votre business : comment ça marche et combien ça coûte vraiment ?</h3>
+              <p class="ac-excerpt">Un chatbot WhatsApp peut répondre à vos clients 24h/24. Voici tout ce qu'il faut savoir avant de vous lancer — technologies, coûts et exemples concrets.</p>
+              <div class="ac-meta">
+                <div class="ac-meta-left">
+                  <span>📅 20 Déc 2024</span>
+                  <span>⏱️ 9 min</span>
+                </div>
+                <span class="read-more">Lire →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="article.html" class="article-card reveal" data-cat="logiciel" data-title="crm logiciel gestion pme abidjan">
+            <div class="ac-img ac5">
+              📊
+              <div class="ac-cat-badge cat-logiciel">Logiciels</div>
+            </div>
+            <div class="ac-body">
+              <h3 class="ac-title">Pourquoi votre PME en Côte d'Ivoire a besoin d'un CRM (et comment en choisir un)</h3>
+              <p class="ac-excerpt">Fichiers Excel, carnet de notes, mémoire — stop ! Un CRM transforme la gestion de vos clients. On vous explique pourquoi et comment démarrer.</p>
+              <div class="ac-meta">
+                <div class="ac-meta-left">
+                  <span>📅 12 Déc 2024</span>
+                  <span>⏱️ 8 min</span>
+                </div>
+                <span class="read-more">Lire →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="article.html" class="article-card reveal" data-cat="seo" data-title="seo local google maps abidjan">
+            <div class="ac-img ac6">
+              📍
+              <div class="ac-cat-badge cat-seo">SEO</div>
+            </div>
+            <div class="ac-body">
+              <h3 class="ac-title">SEO local à Abidjan : comment apparaître dans Google Maps et les recherches locales</h3>
+              <p class="ac-excerpt">Google My Business, citations locales, avis clients — le guide complet pour dominer les recherches locales à Cocody, Plateau, Marcory et partout en CI.</p>
+              <div class="ac-meta">
+                <div class="ac-meta-left">
+                  <span>📅 5 Déc 2024</span>
+                  <span>⏱️ 6 min</span>
+                </div>
+                <span class="read-more">Lire →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="article.html" class="article-card reveal" data-cat="marketing" data-title="community management réseaux sociaux stratégie">
+            <div class="ac-img ac7">
+              📱
+              <div class="ac-cat-badge cat-marketing">Marketing</div>
+            </div>
+            <div class="ac-body">
+              <h3 class="ac-title">Community Management en 2025 : quelle stratégie pour les entreprises ivoiriennes ?</h3>
+              <p class="ac-excerpt">TikTok, Instagram Reels, Facebook — les réseaux sociaux évoluent vite. Voici la stratégie que nos experts recommandent pour les marques en Côte d'Ivoire.</p>
+              <div class="ac-meta">
+                <div class="ac-meta-left">
+                  <span>📅 28 Nov 2024</span>
+                  <span>⏱️ 7 min</span>
+                </div>
+                <span class="read-more">Lire →</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="article.html" class="article-card reveal" data-cat="ia" data-title="intelligence artificielle business afrique">
+            <div class="ac-img ac8">
+              🧠
+              <div class="ac-cat-badge cat-ia">IA</div>
+            </div>
+            <div class="ac-body">
+              <h3 class="ac-title">IA en Afrique : 10 cas d'usage concrets pour les entreprises ivoiriennes en 2025</h3>
+              <p class="ac-excerpt">L'intelligence artificielle n'est plus réservée aux grandes entreprises. Voici 10 façons concrètes dont les PME africaines utilisent l'IA dès aujourd'hui.</p>
+              <div class="ac-meta">
+                <div class="ac-meta-left">
+                  <span>📅 20 Nov 2024</span>
+                  <span>⏱️ 11 min</span>
+                </div>
+                <span class="read-more">Lire →</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- MESSAGE AUCUN RÉSULTAT -->
+        <div id="noResults" style="display:none;text-align:center;padding:60px 0;color:var(--muted)">
+          <div style="font-size:3rem;margin-bottom:16px">🔍</div>
+          <div style="font-family:var(--font-h);font-size:1.2rem;color:var(--white);margin-bottom:8px">Aucun article trouvé</div>
+          <div style="font-size:.9rem">Essayez avec d'autres mots-clés ou catégories</div>
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="pagination" id="pagination">
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn">›</button>
+        </div>
+
+      </main>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+
+        <!-- Newsletter sidebar -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">📧 Newsletter</div>
+          <p style="font-size:.875rem;color:var(--muted);margin-bottom:16px">Recevez nos meilleurs articles chaque semaine. Pas de spam, désinscription en 1 clic.</p>
+          <input type="email" class="newsletter-input" placeholder="votre@email.com" />
+          <button class="newsletter-btn">S'abonner gratuitement</button>
+          <p class="newsletter-note">🔒 Vos données restent privées</p>
+        </div>
+
+        <!-- Catégories -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">📂 Catégories</div>
+          <div class="cat-list">
+            <div class="cat-item" onclick="filterBycat('all')">
+              <span>📰 Tous les articles</span>
+              <span class="cat-count">8</span>
+            </div>
+            <div class="cat-item" onclick="filterBycat('seo')">
+              <span>📈 SEO / Référencement</span>
+              <span class="cat-count">2</span>
+            </div>
+            <div class="cat-item" onclick="filterBycat('web')">
+              <span>🖥️ Création Web</span>
+              <span class="cat-count">1</span>
+            </div>
+            <div class="cat-item" onclick="filterBycat('ia')">
+              <span>🤖 IA & Automatisation</span>
+              <span class="cat-count">3</span>
+            </div>
+            <div class="cat-item" onclick="filterBycat('marketing')">
+              <span>🚀 Marketing Digital</span>
+              <span class="cat-count">2</span>
+            </div>
+            <div class="cat-item" onclick="filterBycat('logiciel')">
+              <span>⚙️ Logiciels Métiers</span>
+              <span class="cat-count">1</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Articles populaires -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">🔥 Articles populaires</div>
+          <div class="popular-list">
+            <a href="article.html" class="popular-item">
+              <div class="popular-num">01</div>
+              <div>
+                <div class="popular-title">5 erreurs SEO qui empêchent votre site d'apparaître sur Google</div>
+                <div class="popular-date">📅 10 Jan 2025</div>
+              </div>
+            </a>
+            <a href="article.html" class="popular-item">
+              <div class="popular-num">02</div>
+              <div>
+                <div class="popular-title">Facebook Ads en Côte d'Ivoire : le guide complet</div>
+                <div class="popular-date">📅 5 Jan 2025</div>
+              </div>
+            </a>
+            <a href="article.html" class="popular-item">
+              <div class="popular-num">03</div>
+              <div>
+                <div class="popular-title">Comment l'IA peut automatiser 80% des tâches répétitives</div>
+                <div class="popular-date">📅 15 Jan 2025</div>
+              </div>
+            </a>
+            <a href="article.html" class="popular-item">
+              <div class="popular-num">04</div>
+              <div>
+                <div class="popular-title">IA en Afrique : 10 cas d'usage concrets pour les PME</div>
+                <div class="popular-date">📅 20 Nov 2024</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tags cloud -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">🏷️ Tags</div>
+          <div class="tags-cloud">
+            <span class="tag-pill">SEO</span>
+            <span class="tag-pill">Google</span>
+            <span class="tag-pill">IA</span>
+            <span class="tag-pill">ChatGPT</span>
+            <span class="tag-pill">WordPress</span>
+            <span class="tag-pill">Facebook Ads</span>
+            <span class="tag-pill">WhatsApp</span>
+            <span class="tag-pill">CRM</span>
+            <span class="tag-pill">Abidjan</span>
+            <span class="tag-pill">Marketing</span>
+            <span class="tag-pill">E-commerce</span>
+            <span class="tag-pill">Mobile</span>
+            <span class="tag-pill">Automatisation</span>
+            <span class="tag-pill">PME</span>
+          </div>
+        </div>
+
+        <!-- CTA sidebar -->
+        <div class="sidebar-card" style="background:linear-gradient(135deg,var(--blue),#0040cc);border-color:transparent;text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:12px">🚀</div>
+          <div style="font-family:var(--font-h);font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:8px">Besoin d'aide ?</div>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.75);margin-bottom:20px">Parlons de votre projet digital. Devis gratuit sous 24h.</p>
+          <a href="contact.html" style="display:block;background:#fff;color:var(--blue);border-radius:10px;padding:11px;font-family:var(--font-b);font-size:.875rem;font-weight:700;text-align:center;transition:all .2s">Demander un devis →</a>
+        </div>
+
+      </aside>
+    </div>
+
+    <!-- NEWSLETTER PLEINE LARGEUR -->
+    <div class="cta-newsletter reveal">
+      <h2>Ne ratez plus aucun <span>conseil digital</span></h2>
+      <p>Rejoignez +500 entrepreneurs ivoiriens qui reçoivent nos conseils chaque semaine.</p>
+      <div class="nl-form">
+        <input type="email" class="nl-input" placeholder="Votre adresse email..." />
+        <button class="nl-btn">📧 S'abonner</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="cta-inner">
+      <div class="tag" style="margin:0 auto 20px">Passez à l'action</div>
+      <h2>Vous avez lu, maintenant <span>passez à l'action</span></h2>
+      <p>Nos experts vous accompagnent pour mettre en place tout ce que vous avez appris sur ce blog.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-primary">🚀 Démarrer mon projet</a>
+        <a href="realisations.html" class="btn btn-outline">Voir nos réalisations →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"><div class="logo-icon">D</div>Digital Growth <span>CI</span></a>
+          <p>Agence digitale à Abidjan spécialisée en création de sites web, développement logiciel, automatisation IA, SEO et marketing digital.</p>
+          <div class="social-links">
+            <a href="#" class="social-link">📘</a>
+            <a href="#" class="social-link">📸</a>
+            <a href="#" class="social-link">💼</a>
+            <a href="#" class="social-link">▶️</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <div class="footer-links">
+            <a href="creation-site-web.html">Création de Site Web</a>
+            <a href="developpement-logiciel.html">Développement Logiciel</a>
+            <a href="automatisation-ia.html">Automatisation IA</a>
+            <a href="seo.html">SEO / Référencement</a>
+            <a href="marketing-digital.html">Marketing Digital</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Agence</h4>
+          <div class="footer-links">
+            <a href="agence.html">Notre histoire</a>
+            <a href="realisations.html">Réalisations</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact-item"><span>📍</span><div class="fc-text">Cocody, Abidjan, CI</div></div>
+          <div class="footer-contact-item"><span>📞</span><div class="fc-text"><a href="tel:+2250713823957">+225 07 13 82 39 57</a></div></div>
+          <div class="footer-contact-item"><span>✉️</span><div class="fc-text"><a href="mailto:DigitalGrowthCi@outlook.fr">DigitalGrowthCi@outlook.fr</a></div></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 <span>Digital Growth CI</span>. Tous droits réservés.</p>
+        <p style="font-size:.8rem">Fait avec ❤️ à Abidjan 🇨🇮</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/2250713823957" class="wa-btn" target="_blank">💬</a>
+
+  <script>
+    // Header scroll
+    window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',scrollY>40));
+
+    // Mobile menu
+    function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+
+    // Scroll reveal
+    const io=new IntersectionObserver(e=>{e.forEach((r,i)=>{if(r.isIntersecting){setTimeout(()=>r.target.classList.add('visible'),i*80);io.unobserve(r.target);}});},{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(r=>io.observe(r));
+
+    // Filtres catégories
+    function filterBycat(cat){
+      document.querySelectorAll('.filter-btn').forEach(b=>{
+        b.classList.toggle('active', b.dataset.filter===cat);
+      });
+      applyFilter(cat, document.getElementById('searchInput').value.toLowerCase());
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        applyFilter(btn.dataset.filter, document.getElementById('searchInput').value.toLowerCase());
+      });
+    });
+
+    // Recherche
+    document.getElementById('searchInput').addEventListener('input', function(){
+      const activeCat = document.querySelector('.filter-btn.active').dataset.filter;
+      applyFilter(activeCat, this.value.toLowerCase());
+    });
+
+    function applyFilter(cat, search){
+      const cards = document.querySelectorAll('.article-card');
+      let visible = 0;
+      cards.forEach(card=>{
+        const matchCat  = cat === 'all' || card.dataset.cat === cat;
+        const matchSearch = !search || card.dataset.title.includes(search) ||
+          card.querySelector('.ac-title').textContent.toLowerCase().includes(search) ||
+          card.querySelector('.ac-excerpt').textContent.toLowerCase().includes(search);
+        const show = matchCat && matchSearch;
+        card.classList.toggle('hidden', !show);
+        if(show) visible++;
+      });
+      document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+      document.getElementById('pagination').style.display = visible === 0 ? 'none' : 'flex';
+    }
+
+    // Newsletter
+    document.querySelectorAll('.newsletter-btn, .nl-btn').forEach(btn=>{
+      btn.addEventListener('click',function(){
+        const input = this.previousElementSibling || this.parentElement.querySelector('input');
+        if(input && input.value.includes('@')){
+          btn.textContent='✅ Abonné !';
+          btn.style.background='#059669';
+          input.value='';
+        } else {
+          input && input.focus();
+        }
+      });
+    });
+
+    // Pagination
+    document.querySelectorAll('.page-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        document.querySelectorAll('.page-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>5 erreurs SEO qui empêchent votre site d'apparaître sur Google | Digital Growth CI</title>
+  <meta name="description" content="Découvrez les 5 erreurs SEO les plus fréquentes chez les sites ivoiriens et comment les corriger pour apparaître sur Google."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#040D1C;--bg2:#070F22;--bg3:#0A1530;--card:#0C1A35;--blue:#0057FF;--cyan:#00C8FF;--glow:#0057FF55;--white:#FFF;--off:#EFF4FF;--muted:#7A8EAA;--border:#1A2D50;--radius:14px;--font-h:'Syne',sans-serif;--font-b:'Outfit',sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--off);font-family:var(--font-b);font-size:16px;line-height:1.65;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+    h1,h2,h3,h4{font-family:var(--font-h);line-height:1.2}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:10px;font-family:var(--font-b);font-size:.95rem;font-weight:600;cursor:pointer;transition:all .25s;border:none}
+    .btn-primary{background:var(--blue);color:#fff;box-shadow:0 0 28px var(--glow)}.btn-primary:hover{background:#1468ff;transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:var(--white);border:1.5px solid var(--border)}.btn-outline:hover{border-color:var(--blue);color:var(--cyan)}
+    .tag{display:inline-flex;align-items:center;gap:8px;background:#0057FF1A;border:1px solid #0057FF44;color:var(--cyan);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 16px;border-radius:100px}
+    .tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cyan);display:block}
+
+    /* HEADER */
+    header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 24px;transition:all .3s}
+    header.scrolled{background:#040D1Cee;backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:76px}
+    .logo{display:flex;align-items:center;gap:10px;font-family:var(--font-h);font-size:1.25rem;font-weight:800;color:var(--white)}
+    .logo-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff}
+    .logo span{color:var(--cyan)}
+    nav{display:flex;align-items:center;gap:4px}
+    .nav-item{position:relative}
+    .nav-link{display:flex;align-items:center;gap:5px;padding:8px 14px;border-radius:8px;font-size:.9rem;font-weight:500;color:var(--off);transition:all .2s;cursor:pointer}
+    .nav-link:hover{color:var(--cyan);background:#0057FF11}
+    .arrow{width:14px;height:14px;transition:transform .2s;opacity:.6}
+    .nav-item:hover .arrow{transform:rotate(180deg)}
+    .dropdown{position:absolute;top:calc(100% + 8px);left:0;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:8px;min-width:240px;opacity:0;pointer-events:none;transform:translateY(-8px);transition:all .2s;box-shadow:0 20px 60px #00000055}
+    .nav-item:hover .dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
+    .dropdown a{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;font-size:.875rem;color:var(--off);transition:all .15s}
+    .dropdown a:hover{background:#0057FF15;color:var(--cyan)}
+    .header-right{display:flex;align-items:center;gap:16px}
+    .header-phone{font-size:.875rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+    .header-phone span{color:var(--white);font-weight:500}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px}
+    .mobile-menu{display:none;position:fixed;inset:0;z-index:999;background:var(--bg2);flex-direction:column;padding:100px 32px 40px;overflow-y:auto}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{padding:14px 0;font-size:1.2rem;font-weight:600;border-bottom:1px solid var(--border);color:var(--off)}
+    .mobile-menu a:hover{color:var(--cyan)}
+    .mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--white);font-size:28px;cursor:pointer}
+    @media(max-width:768px){nav{display:none}.hamburger{display:flex}.header-phone{display:none}}
+
+    /* PROGRESS BAR */
+    .progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan));z-index:2000;transition:width .1s linear;width:0%}
+
+    /* ARTICLE HERO */
+    .article-hero{padding:120px 0 60px;position:relative;overflow:hidden;background:radial-gradient(ellipse 60% 50% at 50% 0%,#0057FF12 0%,transparent 70%)}
+    .article-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.04}
+    .breadcrumb{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+    .breadcrumb a{color:var(--cyan)}
+    .breadcrumb a:hover{text-decoration:underline}
+    .article-cat{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;background:#059669;padding:4px 12px;border-radius:100px;margin-bottom:16px}
+    .article-title{font-size:clamp(1.8rem,4vw,3rem);font-weight:800;color:var(--white);margin-bottom:20px;line-height:1.2;max-width:760px}
+    .article-excerpt{font-size:1.1rem;color:var(--muted);max-width:680px;margin-bottom:32px;line-height:1.75}
+    .article-meta{display:flex;flex-wrap:wrap;gap:20px;align-items:center;padding:20px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .meta-author{display:flex;align-items:center;gap:10px}
+    .author-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:18px}
+    .author-name{font-weight:600;color:var(--white);font-size:.9rem}
+    .author-role{font-size:.78rem;color:var(--muted)}
+    .meta-items{display:flex;flex-wrap:wrap;gap:16px;margin-left:auto}
+    .meta-item{display:flex;align-items:center;gap:5px;font-size:.82rem;color:var(--muted)}
+    .share-btns{display:flex;gap:8px;margin-left:auto}
+    .share-btn{width:36px;height:36px;border-radius:9px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;transition:all .2s}
+    .share-btn:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-2px)}
+
+    /* ARTICLE LAYOUT */
+    .article-layout{display:grid;grid-template-columns:1fr 300px;gap:56px;padding:60px 0 100px}
+    @media(max-width:1024px){.article-layout{grid-template-columns:1fr}}
+
+    /* ARTICLE CONTENT */
+    .article-content{}
+    .article-content h2{font-size:1.6rem;font-weight:800;color:var(--white);margin:40px 0 16px;padding-top:8px}
+    .article-content h3{font-size:1.2rem;font-weight:700;color:var(--white);margin:28px 0 12px}
+    .article-content p{font-size:1rem;color:#B8C8DC;line-height:1.85;margin-bottom:20px}
+    .article-content ul,.article-content ol{padding-left:0;margin-bottom:20px;display:flex;flex-direction:column;gap:10px}
+    .article-content li{font-size:1rem;color:#B8C8DC;line-height:1.75;list-style:none;display:flex;gap:10px;align-items:flex-start}
+    .article-content ul li::before{content:'→';color:var(--cyan);font-weight:700;flex-shrink:0;margin-top:2px}
+    .article-content ol{counter-reset:ol-counter}
+    .article-content ol li{counter-increment:ol-counter}
+    .article-content ol li::before{content:counter(ol-counter);background:var(--blue);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;margin-top:2px}
+
+    .callout{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--cyan);border-radius:0 12px 12px 0;padding:20px 24px;margin:28px 0}
+    .callout.warning{border-left-color:#F59E0B;background:#1A1200}
+    .callout.success{border-left-color:#059669;background:#0A1A0F}
+    .callout.danger{border-left-color:#EF4444;background:#1A0808}
+    .callout-title{font-family:var(--font-h);font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:8px}
+    .callout p{margin-bottom:0;font-size:.9rem}
+
+    .article-img{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:40px;display:flex;align-items:center;justify-content:center;font-size:4rem;margin:28px 0;min-height:200px;position:relative;overflow:hidden}
+    .article-img::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,#0057FF12,transparent 70%)}
+    .img-caption{text-align:center;font-size:.82rem;color:var(--muted);margin-top:-20px;margin-bottom:28px}
+
+    .highlight-box{background:linear-gradient(135deg,#0057FF15,#00C8FF10);border:1px solid #0057FF33;border-radius:16px;padding:28px;margin:28px 0}
+    .highlight-box h3{color:var(--cyan);margin-bottom:12px;font-size:1.1rem}
+    .highlight-box p{margin-bottom:0;font-size:.95rem}
+
+    .error-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;margin:20px 0;transition:all .3s}
+    .error-card:hover{border-color:#0057FF44}
+    .error-header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+    .error-num{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-size:.9rem;font-weight:800;color:#fff;flex-shrink:0}
+    .error-title{font-family:var(--font-h);font-size:1.05rem;font-weight:700;color:var(--white)}
+    .error-body p{font-size:.9rem;color:#B8C8DC;margin-bottom:12px}
+    .fix-tag{display:inline-flex;align-items:center;gap:5px;background:#0A2A1A;border:1px solid #059669;color:#34D399;font-size:.78rem;font-weight:700;padding:4px 10px;border-radius:6px}
+
+    .article-divider{border:none;border-top:1px solid var(--border);margin:40px 0}
+
+    /* TOC */
+    .toc-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:36px}
+    .toc-title{font-family:var(--font-h);font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+    .toc-list{display:flex;flex-direction:column;gap:6px}
+    .toc-item{font-size:.85rem;color:var(--muted);cursor:pointer;transition:color .2s;display:flex;align-items:center;gap:6px;padding:4px 0}
+    .toc-item:hover{color:var(--cyan)}
+    .toc-item::before{content:'›';color:var(--border)}
+    .toc-item.active{color:var(--cyan)}
+    .toc-item.active::before{color:var(--cyan)}
+
+    /* TAGS */
+    .tags-row{display:flex;flex-wrap:wrap;gap:8px;margin:40px 0 0}
+    .art-tag{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:5px 14px;font-size:.8rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s}
+    .art-tag:hover{border-color:var(--blue);color:var(--cyan)}
+
+    /* AUTHOR BOX */
+    .author-box{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;margin:48px 0;display:flex;gap:24px;align-items:flex-start}
+    @media(max-width:580px){.author-box{flex-direction:column}}
+    .author-big-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0}
+    .author-info h3{font-family:var(--font-h);font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:4px}
+    .author-info .author-role-text{font-size:.85rem;color:var(--cyan);font-weight:600;margin-bottom:10px}
+    .author-info p{font-size:.875rem;color:var(--muted);line-height:1.7}
+
+    /* RELATED ARTICLES */
+    .related-section{padding:0 0 80px}
+    .related-title{font-family:var(--font-h);font-size:1.4rem;font-weight:800;color:var(--white);margin-bottom:28px}
+    .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    @media(max-width:900px){.related-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:580px){.related-grid{grid-template-columns:1fr}}
+    .related-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .3s}
+    .related-card:hover{border-color:#0057FF44;transform:translateY(-4px)}
+    .related-img{height:120px;display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+    .r1{background:linear-gradient(135deg,#7C3AED20,#0057FF20)}
+    .r2{background:linear-gradient(135deg,#EA580C20,#F9731620)}
+    .r3{background:linear-gradient(135deg,#0891B220,#0057FF20)}
+    .related-body{padding:18px}
+    .related-cat{font-size:.72rem;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+    .related-title-art{font-family:var(--font-h);font-size:.95rem;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:8px}
+    .related-date{font-size:.75rem;color:var(--muted)}
+
+    /* SIDEBAR */
+    .art-sidebar{display:flex;flex-direction:column;gap:20px}
+    @media(max-width:1024px){.art-sidebar{display:none}}
+    .sidebar-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;position:sticky;top:100px}
+    .sidebar-title{font-family:var(--font-h);font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+
+    .toc-sidebar-list{display:flex;flex-direction:column;gap:4px}
+    .toc-sidebar-item{font-size:.82rem;color:var(--muted);padding:6px 10px;border-radius:8px;cursor:pointer;transition:all .2s;border-left:2px solid transparent}
+    .toc-sidebar-item:hover{color:var(--off);background:var(--bg3);border-left-color:var(--border)}
+    .toc-sidebar-item.active{color:var(--cyan);background:#0057FF10;border-left-color:var(--cyan)}
+
+    .sidebar-cta{background:linear-gradient(135deg,var(--blue),#0040cc);border-radius:14px;padding:24px;text-align:center}
+    .sidebar-cta-icon{font-size:2rem;margin-bottom:10px}
+    .sidebar-cta h4{font-family:var(--font-h);font-size:1rem;font-weight:800;color:#fff;margin-bottom:8px}
+    .sidebar-cta p{font-size:.82rem;color:rgba(255,255,255,.75);margin-bottom:16px;line-height:1.5}
+    .sidebar-cta a{display:block;background:#fff;color:var(--blue);border-radius:8px;padding:10px;font-family:var(--font-b);font-size:.85rem;font-weight:700;text-align:center;transition:all .2s}
+    .sidebar-cta a:hover{transform:translateY(-1px)}
+
+    .sidebar-share{display:flex;flex-direction:column;gap:8px}
+    .share-row-btn{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--bg3);font-size:.85rem;font-weight:600;color:var(--off);cursor:pointer;transition:all .2s}
+    .share-row-btn:hover{border-color:var(--blue);color:var(--cyan)}
+
+    /* CTA BANNER */
+    .cta-banner{background:linear-gradient(135deg,var(--card),var(--bg3));border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:0 16px 16px 0;padding:28px 32px;margin:40px 0;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+    .cta-banner-text h3{font-family:var(--font-h);font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:6px}
+    .cta-banner-text p{font-size:.875rem;color:var(--muted)}
+
+    /* FOOTER */
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:70px 0 0}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;margin-bottom:56px}
+    @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
+    .footer-brand p{font-size:.9rem;color:var(--muted);max-width:280px;margin:16px 0 24px}
+    .social-links{display:flex;gap:10px}
+    .social-link{width:38px;height:38px;border-radius:10px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s}
+    .social-link:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-3px)}
+    .footer-col h4{font-family:var(--font-h);font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .footer-links{display:flex;flex-direction:column;gap:10px}
+    .footer-links a{font-size:.875rem;color:var(--muted);transition:color .2s}
+    .footer-links a:hover{color:var(--cyan)}
+    .footer-contact-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:14px}
+    .fc-text{font-size:.875rem;color:var(--muted)}
+    .fc-text a{color:var(--muted)}.fc-text a:hover{color:var(--cyan)}
+    .footer-bottom{border-top:1px solid var(--border);padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .footer-bottom p{font-size:.85rem;color:var(--muted)}
+    .footer-bottom span{color:var(--cyan)}
+    .wa-btn{position:fixed;bottom:28px;right:28px;z-index:998;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 24px #25D36655;transition:transform .25s}
+    .wa-btn:hover{transform:scale(1.1)}
+  </style>
+</head>
+<body>
+
+  <!-- PROGRESS BAR DE LECTURE -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><div class="logo-icon">D</div>Digital Growth <span>CI</span></a>
+      <nav>
+        <div class="nav-item">
+          <div class="nav-link">Services <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+          <div class="dropdown">
+            <a href="creation-site-web.html"><span>🖥️</span> Création de Site Web</a>
+            <a href="developpement-logiciel.html"><span>⚙️</span> Développement Logiciel</a>
+            <a href="automatisation-ia.html"><span>🤖</span> Automatisation IA</a>
+            <a href="seo.html"><span>📈</span> SEO / Référencement</a>
+            <a href="marketing-digital.html"><span>🚀</span> Marketing Digital</a>
+          </div>
+        </div>
+        <a href="realisations.html" class="nav-link">Réalisations</a>
+        <a href="agence.html" class="nav-link">L'Agence</a>
+        <a href="blog.html" class="nav-link" style="color:var(--cyan)">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-right">
+        <div class="header-phone">📞 <span><a href="tel:+2250713823957">+225 07 13 82 39 57</a></span></div>
+        <a href="contact.html" class="btn btn-primary" style="padding:10px 20px;font-size:.85rem;">Devis gratuit</a>
+        <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="toggleMenu()">✕</button>
+    <a href="index.html">🏠 Accueil</a>
+    <a href="creation-site-web.html">🖥️ Création de Site Web</a>
+    <a href="developpement-logiciel.html">⚙️ Développement Logiciel</a>
+    <a href="automatisation-ia.html">🤖 Automatisation IA</a>
+    <a href="seo.html">📈 SEO / Référencement</a>
+    <a href="marketing-digital.html">🚀 Marketing Digital</a>
+    <a href="realisations.html">🏆 Réalisations</a>
+    <a href="agence.html">🏢 L'Agence</a>
+    <a href="blog.html">📰 Blog</a>
+    <a href="contact.html">📞 Contact</a>
+  </div>
+
+  <!-- ARTICLE HERO -->
+  <section class="article-hero">
+    <div class="container" style="position:relative;z-index:1">
+      <div class="breadcrumb">
+        <a href="index.html">Accueil</a> ›
+        <a href="blog.html">Blog</a> ›
+        <span style="color:var(--off)">5 erreurs SEO fréquentes</span>
+      </div>
+      <div class="article-cat">📈 SEO / Référencement</div>
+      <h1 class="article-title">5 erreurs SEO qui empêchent votre site d'apparaître sur Google en Côte d'Ivoire</h1>
+      <p class="article-excerpt">La plupart des sites ivoiriens commettent ces erreurs techniques sans le savoir. Vérifiez si votre site est concerné — et comment corriger chacune d'elles rapidement.</p>
+      <div class="article-meta">
+        <div class="meta-author">
+          <div class="author-avatar">👨‍💻</div>
+          <div>
+            <div class="author-name">Koffi Jean</div>
+            <div class="author-role">Expert SEO — Digital Growth CI</div>
+          </div>
+        </div>
+        <div class="meta-items">
+          <div class="meta-item">📅 10 Janvier 2025</div>
+          <div class="meta-item">⏱️ 6 min de lecture</div>
+          <div class="meta-item">👁️ 1 248 vues</div>
+        </div>
+        <div class="share-btns">
+          <button class="share-btn" title="Partager sur Facebook" onclick="share('facebook')">📘</button>
+          <button class="share-btn" title="Partager sur LinkedIn" onclick="share('linkedin')">💼</button>
+          <button class="share-btn" title="Partager sur WhatsApp" onclick="share('whatsapp')">💬</button>
+          <button class="share-btn" title="Copier le lien" onclick="copyLink()">🔗</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE LAYOUT -->
+  <div class="container">
+    <div class="article-layout">
+
+      <!-- CONTENU ARTICLE -->
+      <article class="article-content" id="articleContent">
+
+        <!-- TABLE DES MATIÈRES MOBILE -->
+        <div class="toc-box">
+          <div class="toc-title">📋 Dans cet article</div>
+          <div class="toc-list">
+            <div class="toc-item" onclick="scrollTo('erreur1')">Erreur #1 — Site non optimisé pour mobile</div>
+            <div class="toc-item" onclick="scrollTo('erreur2')">Erreur #2 — Vitesse de chargement trop lente</div>
+            <div class="toc-item" onclick="scrollTo('erreur3')">Erreur #3 — Balises Title et Meta manquantes</div>
+            <div class="toc-item" onclick="scrollTo('erreur4')">Erreur #4 — Absence de contenu de qualité</div>
+            <div class="toc-item" onclick="scrollTo('erreur5')">Erreur #5 — Zéro backlinks de qualité</div>
+            <div class="toc-item" onclick="scrollTo('conclusion')">Comment corriger tout ça ?</div>
+          </div>
+        </div>
+
+        <p>Si votre site internet n'apparaît pas dans les premières pages de Google, vous n'êtes pas seul. En Côte d'Ivoire, la grande majorité des sites web souffrent des mêmes problèmes de référencement — souvent sans que leurs propriétaires le sachent.</p>
+
+        <p>Après avoir audité plus de <strong style="color:var(--white)">50 sites d'entreprises ivoiriennes</strong>, nous avons identifié 5 erreurs qui reviennent systématiquement. La bonne nouvelle ? Toutes sont corrigeables.</p>
+
+        <div class="callout">
+          <div class="callout-title">💡 Bon à savoir avant de commencer</div>
+          <p>Google analyse plus de <strong style="color:var(--white)">200 critères</strong> pour classer un site. Cet article se concentre sur les 5 erreurs les plus impactantes et les plus faciles à corriger.</p>
+        </div>
+
+        <!-- ERREUR 1 -->
+        <div id="erreur1">
+          <h2>Erreur #1 — Votre site n'est pas adapté aux mobiles</h2>
+
+          <div class="error-card">
+            <div class="error-header">
+              <div class="error-num">01</div>
+              <div class="error-title">Site non responsive (mobile-unfriendly)</div>
+            </div>
+            <div class="error-body">
+              <p>En Côte d'Ivoire, <strong style="color:var(--white)">plus de 85% des internautes</strong> naviguent sur smartphone. Si votre site n'est pas parfaitement lisible sur mobile, Google le pénalise fortement dans ses résultats — et vos visiteurs partent en quelques secondes.</p>
+              <p>Google applique le principe du <em style="color:var(--cyan)">Mobile-First Indexing</em> depuis 2021 : il indexe d'abord la version mobile de votre site. Un site non adapté au mobile est donc quasi invisible sur Google.</p>
+              <div class="fix-tag">✅ Solution : Testez votre site sur <strong>search.google.com/test/mobile-friendly</strong> et corrigez les problèmes signalés</div>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <h3>🔍 Comment vérifier si votre site est responsive ?</h3>
+            <p>Ouvrez votre site sur votre smartphone. Si vous devez zoomer pour lire le texte, si les boutons sont trop petits ou si la mise en page est cassée — votre site a un problème mobile. C'est une priorité absolue à corriger.</p>
+          </div>
+        </div>
+
+        <hr class="article-divider"/>
+
+        <!-- ERREUR 2 -->
+        <div id="erreur2">
+          <h2>Erreur #2 — La vitesse de chargement est trop lente</h2>
+
+          <div class="error-card">
+            <div class="error-header">
+              <div class="error-num">02</div>
+              <div class="error-title">Temps de chargement supérieur à 3 secondes</div>
+            </div>
+            <div class="error-body">
+              <p>53% des visiteurs quittent un site s'il met plus de 3 secondes à charger. Et avec les connexions 3G/4G variables en Côte d'Ivoire, un site lourd est catastrophique pour votre référencement ET pour vos conversions.</p>
+              <p>Les causes les plus fréquentes que nous observons sur les sites ivoiriens :</p>
+            </div>
+          </div>
+
+          <ul>
+            <li>Images non compressées — une photo de 5 Mo à la place d'une image optimisée de 200 Ko</li>
+            <li>Hébergement mutualisé low-cost avec des serveurs trop éloignés de l'Afrique</li>
+            <li>Trop de plugins installés sur WordPress sans être utilisés</li>
+            <li>Absence de cache et de CDN (réseau de distribution de contenu)</li>
+            <li>Code CSS et JavaScript non minifié</li>
+          </ul>
+
+          <div class="callout success">
+            <div class="callout-title">✅ Outil de diagnostic gratuit</div>
+            <p>Testez la vitesse de votre site sur <strong style="color:var(--white)">PageSpeed Insights (pagespeed.web.dev)</strong>. L'outil vous donne un score sur 100 et liste précisément ce qu'il faut corriger. Visez un score supérieur à 70 sur mobile.</p>
+          </div>
+        </div>
+
+        <hr class="article-divider"/>
+
+        <!-- ERREUR 3 -->
+        <div id="erreur3">
+          <h2>Erreur #3 — Les balises Title et Meta Description sont absentes ou dupliquées</h2>
+
+          <div class="article-img" style="background:linear-gradient(135deg,#0057FF15,#00C8FF10)">
+            <span style="position:relative;z-index:1;font-size:5rem">🏷️</span>
+          </div>
+          <p class="img-caption">Les balises SEO sont invisibles pour les visiteurs mais essentielles pour Google</p>
+
+          <div class="error-card">
+            <div class="error-header">
+              <div class="error-num">03</div>
+              <div class="error-title">Balises Title et Meta manquantes ou identiques sur toutes les pages</div>
+            </div>
+            <div class="error-body">
+              <p>Le <strong style="color:var(--white)">Title</strong> est le titre de votre page tel qu'il apparaît dans les résultats Google. La <strong style="color:var(--white)">Meta Description</strong> est le petit résumé en dessous. Ce sont les deux premiers éléments que voit votre futur client avant de cliquer.</p>
+              <p>Sur 80% des sites audités, nous trouvons des titles génériques comme "Accueil — Mon site" ou pire : identiques sur toutes les pages. C'est une erreur critique qui empêche Google de comprendre le sujet de chaque page.</p>
+              <div class="fix-tag">✅ Solution : Chaque page doit avoir un Title unique de 50-60 caractères avec le mot-clé principal et la ville si vous êtes local</div>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <h3>📝 Exemple d'un bon Title pour une entreprise ivoirienne</h3>
+            <p><strong style="color:var(--cyan)">❌ Mauvais :</strong> "Accueil | Mon Agence" <br/><strong style="color:#34D399">✅ Bon :</strong> "Agence Immobilière à Cocody Abidjan | ImmoCI — Appartements & Villas"</p>
+          </div>
+        </div>
+
+        <hr class="article-divider"/>
+
+        <!-- ERREUR 4 -->
+        <div id="erreur4">
+          <h2>Erreur #4 — Absence de contenu de qualité sur les pages clés</h2>
+
+          <div class="error-card">
+            <div class="error-header">
+              <div class="error-num">04</div>
+              <div class="error-title">Pages avec moins de 300 mots ou contenu dupliqué</div>
+            </div>
+            <div class="error-body">
+              <p>Google a besoin de lire et comprendre votre contenu pour vous positionner. Une page qui dit simplement "Bienvenue sur notre site, nous proposons des services de qualité" ne dit rien à Google — ni à vos visiteurs.</p>
+              <p>En Côte d'Ivoire, beaucoup de sites ont des pages produits ou services avec 2 lignes de description. C'est insuffisant. Une page bien optimisée doit contenir :</p>
+            </div>
+          </div>
+
+          <ol>
+            <li>Un contenu de minimum 500 mots qui répond vraiment aux questions de vos clients</li>
+            <li>Le mot-clé principal naturellement intégré dans le titre H1, les sous-titres et le texte</li>
+            <li>Des images avec des attributs ALT descriptifs en français</li>
+            <li>Des liens internes vers d'autres pages pertinentes de votre site</li>
+            <li>Un appel à l'action clair à la fin de chaque page</li>
+          </ol>
+
+          <div class="callout warning">
+            <div class="callout-title">⚠️ Attention au contenu dupliqué</div>
+            <p>Si vous avez copié le contenu d'un concurrent ou d'un autre site, Google le détecte et peut pénaliser votre site. Tout votre contenu doit être original et unique.</p>
+          </div>
+        </div>
+
+        <hr class="article-divider"/>
+
+        <!-- ERREUR 5 -->
+        <div id="erreur5">
+          <h2>Erreur #5 — Zéro backlinks de sites externes</h2>
+
+          <div class="error-card">
+            <div class="error-header">
+              <div class="error-num">05</div>
+              <div class="error-title">Aucun site externe ne fait de lien vers votre site</div>
+            </div>
+            <div class="error-body">
+              <p>Les <strong style="color:var(--white)">backlinks</strong> (liens provenant d'autres sites vers le vôtre) sont l'un des signaux les plus importants pour Google. C'est comme des votes de confiance : plus des sites reconnus parlent de vous, plus Google vous fait confiance.</p>
+              <p>La plupart des sites ivoiriens n'ont aucun backlink externe. Résultat : même avec un contenu excellent, ils peinent à se positionner sur des mots-clés compétitifs.</p>
+              <div class="fix-tag">✅ Solution : Inscrivez-vous sur des annuaires locaux (CI), demandez des partenariats à des médias ivoiriens, publiez des articles invités</div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="article-divider"/>
+
+        <!-- CONCLUSION -->
+        <div id="conclusion">
+          <h2>Comment corriger toutes ces erreurs ?</h2>
+
+          <p>Ces 5 erreurs peuvent sembler intimidantes, mais chacune est corrigeable avec la bonne approche. Voici notre recommandation par ordre de priorité :</p>
+
+          <ol>
+            <li><strong style="color:var(--white)">Cette semaine :</strong> Testez la version mobile et la vitesse de votre site avec les outils gratuits mentionnés</li>
+            <li><strong style="color:var(--white)">Ce mois-ci :</strong> Optimisez les balises Title et Meta de vos 5 pages les plus importantes</li>
+            <li><strong style="color:var(--white)">Ce trimestre :</strong> Créez du contenu de qualité pour vos pages services et commencez à obtenir des backlinks locaux</li>
+          </ol>
+
+          <p>Si vous voulez aller plus vite et éviter de faire des erreurs coûteuses, notre équipe propose un <strong style="color:var(--white)">audit SEO gratuit</strong> de votre site avec un plan d'action priorisé.</p>
+        </div>
+
+        <!-- CTA BANNER DANS L'ARTICLE -->
+        <div class="cta-banner">
+          <div style="font-size:2.5rem">📊</div>
+          <div class="cta-banner-text">
+            <h3>Votre site a peut-être ces 5 erreurs sans que vous le sachiez</h3>
+            <p>Demandez votre audit SEO gratuit — rapport complet et plan d'action livré sous 48h.</p>
+          </div>
+          <a href="contact.html" class="btn btn-primary" style="white-space:nowrap;flex-shrink:0">Audit gratuit →</a>
+        </div>
+
+        <!-- TAGS -->
+        <div class="tags-row">
+          <span class="art-tag">SEO</span>
+          <span class="art-tag">Référencement Google</span>
+          <span class="art-tag">Abidjan</span>
+          <span class="art-tag">Côte d'Ivoire</span>
+          <span class="art-tag">Mobile</span>
+          <span class="art-tag">Vitesse de chargement</span>
+          <span class="art-tag">Backlinks</span>
+          <span class="art-tag">Balises SEO</span>
+        </div>
+
+        <!-- AUTEUR -->
+        <div class="author-box">
+          <div class="author-big-avatar">👨‍💻</div>
+          <div class="author-info">
+            <h3>Koffi Jean</h3>
+            <div class="author-role-text">Expert SEO & Lead Développeur — Digital Growth CI</div>
+            <p>Passionné par le référencement naturel et les technologies web, Koffi accompagne les entreprises ivoiriennes dans leur visibilité en ligne depuis plus de 5 ans. Il a audité et optimisé plus de 50 sites en Côte d'Ivoire.</p>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="art-sidebar">
+
+        <!-- Table des matières sticky -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">📋 Dans cet article</div>
+          <div class="toc-sidebar-list">
+            <div class="toc-sidebar-item" onclick="scrollToId('erreur1')">Erreur #1 — Non adapté mobile</div>
+            <div class="toc-sidebar-item" onclick="scrollToId('erreur2')">Erreur #2 — Chargement lent</div>
+            <div class="toc-sidebar-item" onclick="scrollToId('erreur3')">Erreur #3 — Balises manquantes</div>
+            <div class="toc-sidebar-item" onclick="scrollToId('erreur4')">Erreur #4 — Peu de contenu</div>
+            <div class="toc-sidebar-item" onclick="scrollToId('erreur5')">Erreur #5 — Zéro backlinks</div>
+            <div class="toc-sidebar-item" onclick="scrollToId('conclusion')">Comment corriger ?</div>
+          </div>
+        </div>
+
+        <!-- CTA sidebar -->
+        <div class="sidebar-card" style="padding:0;overflow:hidden;border:none">
+          <div class="sidebar-cta">
+            <div class="sidebar-cta-icon">🔍</div>
+            <h4>Audit SEO Gratuit</h4>
+            <p>On analyse votre site et on vous dit exactement ce qui vous empêche d'apparaître sur Google.</p>
+            <a href="contact.html">Demander mon audit →</a>
+          </div>
+        </div>
+
+        <!-- Partager -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">📤 Partager cet article</div>
+          <div class="sidebar-share">
+            <button class="share-row-btn" onclick="share('facebook')">📘 Partager sur Facebook</button>
+            <button class="share-row-btn" onclick="share('linkedin')">💼 Partager sur LinkedIn</button>
+            <button class="share-row-btn" onclick="share('whatsapp')">💬 Envoyer sur WhatsApp</button>
+            <button class="share-row-btn" onclick="copyLink()">🔗 Copier le lien</button>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+    <!-- ARTICLES SIMILAIRES -->
+    <section class="related-section">
+      <div class="related-title">📰 Articles similaires</div>
+      <div class="related-grid">
+        <a href="article.html" class="related-card">
+          <div class="related-img r1">📍</div>
+          <div class="related-body">
+            <div class="related-cat">SEO</div>
+            <div class="related-title-art">SEO local à Abidjan : dominez Google Maps et les recherches locales</div>
+            <div class="related-date">📅 5 Déc 2024 · 6 min</div>
+          </div>
+        </a>
+        <a href="article.html" class="related-card">
+          <div class="related-img r2">🎯</div>
+          <div class="related-body">
+            <div class="related-cat">Marketing Digital</div>
+            <div class="related-title-art">Facebook Ads en Côte d'Ivoire : le guide complet pour ne pas perdre votre budget</div>
+            <div class="related-date">📅 5 Jan 2025 · 10 min</div>
+          </div>
+        </a>
+        <a href="article.html" class="related-card">
+          <div class="related-img r3">🖥️</div>
+          <div class="related-body">
+            <div class="related-cat">Création Web</div>
+            <div class="related-title-art">WordPress vs site sur mesure : que choisir pour votre entreprise à Abidjan ?</div>
+            <div class="related-date">📅 28 Déc 2024 · 7 min</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"><div class="logo-icon">D</div>Digital Growth <span>CI</span></a>
+          <p>Agence digitale à Abidjan spécialisée en création de sites web, développement logiciel, automatisation IA, SEO et marketing digital.</p>
+          <div class="social-links">
+            <a href="#" class="social-link">📘</a>
+            <a href="#" class="social-link">📸</a>
+            <a href="#" class="social-link">💼</a>
+            <a href="#" class="social-link">▶️</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <div class="footer-links">
+            <a href="creation-site-web.html">Création de Site Web</a>
+            <a href="developpement-logiciel.html">Développement Logiciel</a>
+            <a href="automatisation-ia.html">Automatisation IA</a>
+            <a href="seo.html">SEO / Référencement</a>
+            <a href="marketing-digital.html">Marketing Digital</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Agence</h4>
+          <div class="footer-links">
+            <a href="agence.html">Notre histoire</a>
+            <a href="realisations.html">Réalisations</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact-item"><span>📍</span><div class="fc-text">Cocody, Abidjan, CI</div></div>
+          <div class="footer-contact-item"><span>📞</span><div class="fc-text"><a href="tel:+2250713823957">+225 07 13 82 39 57</a></div></div>
+          <div class="footer-contact-item"><span>✉️</span><div class="fc-text"><a href="mailto:DigitalGrowthCi@outlook.fr">DigitalGrowthCi@outlook.fr</a></div></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 <span>Digital Growth CI</span>. Tous droits réservés.</p>
+        <p style="font-size:.8rem">Fait avec ❤️ à Abidjan 🇨🇮</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/2250713823957" class="wa-btn" target="_blank">💬</a>
+
+  <script>
+    // Header scroll
+    window.addEventListener('scroll',()=>{
+      document.getElementById('header').classList.toggle('scrolled',scrollY>40);
+      // Progress bar
+      const article = document.getElementById('articleContent');
+      const rect = article.getBoundingClientRect();
+      const total = article.offsetHeight - window.innerHeight;
+      const scrolled = Math.max(0, -rect.top);
+      const pct = Math.min(100, (scrolled / total) * 100);
+      document.getElementById('progressBar').style.width = pct + '%';
+      // TOC highlight
+      const sections = ['erreur1','erreur2','erreur3','erreur4','erreur5','conclusion'];
+      sections.forEach(id=>{
+        const el = document.getElementById(id);
+        if(!el) return;
+        const top = el.getBoundingClientRect().top;
+        document.querySelectorAll('.toc-sidebar-item').forEach((item,i)=>{
+          if(i < sections.length && sections[i] === id && top < 200){
+            item.classList.add('active');
+          } else if(sections[i] === id) {
+            item.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    // Mobile menu
+    function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+
+    // Scroll to section
+    function scrollToId(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+    function scrollTo(id){ scrollToId(id); }
+
+    // Share
+    function share(platform){
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent('5 erreurs SEO qui empêchent votre site d\'apparaître sur Google en Côte d\'Ivoire');
+      const urls = {
+        facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+        linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+        whatsapp: `https://wa.me/?text=${text}%20${url}`
+      };
+      if(urls[platform]) window.open(urls[platform], '_blank', 'width=600,height=400');
+    }
+    function copyLink(){
+      navigator.clipboard.writeText(window.location.href).then(()=>{
+        const btn = event.target.closest('.share-btn, .share-row-btn');
+        const original = btn.textContent;
+        btn.textContent = '✅ Copié !';
+        setTimeout(()=>btn.textContent=original, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
